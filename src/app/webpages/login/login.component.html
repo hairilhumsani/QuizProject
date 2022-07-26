@@ -4,18 +4,18 @@
     <form>
       <p>
         <mat-form-field>
-          <input type="text" matInput placeholder="Username" formControlName="username">
+          <input type="text" matInput placeholder="Username" [(ngModel)] = 'user.username' name="username">
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field>
-          <input type="password" matInput placeholder="Password" formControlName="password">
+          <input type="password" matInput placeholder="Password" [(ngModel)] = 'user.password' name ='password'>
         </mat-form-field>
       </p>
 
       <div class="button">
-        <button type="submit" mat-button>Login</button>
+        <button (click)="login()" type="submit" mat-button>Login</button>
       </div>
 
       <div class="button">

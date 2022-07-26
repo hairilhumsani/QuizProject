@@ -12,6 +12,11 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cancel()
+  {
+    localStorage.setItem('access','login');
+  }
+
   
  /* @HostListener('window:popstate', ['$event'])
   onPopState(event): void {

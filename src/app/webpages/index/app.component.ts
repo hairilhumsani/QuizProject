@@ -19,14 +19,22 @@ export class AppComponent implements OnInit {
 
 
   access = localStorage.getItem('access');
+  username = localStorage.getItem('')
 
 
   checkAccess() {
-    if (this.access == (null || 'login')) {
+    if (this.access == (null)) {
       this.router.navigate(["/login"])
     }
     else if (this.access == "register") {
       this.router.navigate(["/register"])
+    }
+    else if (this.access == "login") {
+      this.router.navigate(["/login"])
+    }
+    else
+    {
+      this.router.navigate([''])
     }
   }
 }

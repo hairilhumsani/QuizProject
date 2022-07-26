@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './index/app.component';
-import { LoginComponent } from './login/login.component';
+import { AppComponent } from './webpages/index/app.component';
+import { LoginComponent } from './webpages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../assets/material/material.module';
-import { RegistrationComponent } from './registration/registration.component';
+import { RegistrationComponent } from './webpages/registration/registration.component';
 
 
 @NgModule({
@@ -19,7 +23,10 @@ import { RegistrationComponent } from './registration/registration.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
