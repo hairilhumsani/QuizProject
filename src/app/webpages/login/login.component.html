@@ -1,27 +1,30 @@
-<mat-card class="card-display">
-  <mat-card-title>Login</mat-card-title>
-  <mat-card-content>
-    <form>
-      <p>
-        <mat-form-field>
-          <input type="text" matInput placeholder="Username" [(ngModel)] = 'user.username' name="username">
-        </mat-form-field>
-      </p>
+<mat-card class="head-display">
+  <mat-card class="card-display">
+        <!-- Login Card-->
+        <mat-card class="login-card">
+          <mat-card-title style="text-align:center">Login</mat-card-title>
+          <mat-card-content>
+            <form>
+              <p>
+                <mat-form-field style="width:100%">
+                  <input type="text" matInput placeholder="Username" [(ngModel)]='user.username' name="username">
+                </mat-form-field>
+              </p>
 
-      <p>
-        <mat-form-field>
-          <input type="password" matInput placeholder="Password" [(ngModel)] = 'user.password' name ='password'>
-        </mat-form-field>
-      </p>
+              <p>
+                <mat-form-field style="width:100%">
+                  <input type="password" matInput placeholder="Password" [(ngModel)]='user.password' name='password'>
+                </mat-form-field>
+              </p>
 
-      <div class="button">
-        <button (click)="login()" type="submit" mat-button>Login</button>
-      </div>
-
-      <div class="button">
-        <button (click)="addAccess('register')" mat-button>Register</button>
-      </div>
-
-    </form>
-  </mat-card-content>
+              <div class="button">
+                <button type="submit" color="primary" id="loginBtn" (click)="login()" type="submit" mat-raised-button>Login</button>
+                <button type="button" color="warn" id="registerBtn" (click)="register()" type="submit" mat-raised-button>Register</button>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+  </mat-card>
 </mat-card>
+
+<router-outlet></router-outlet>

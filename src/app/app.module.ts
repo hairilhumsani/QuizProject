@@ -10,14 +10,18 @@ import { AppComponent } from './webpages/index/app.component';
 import { LoginComponent } from './webpages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../assets/material/material.module';
-import { RegistrationComponent } from './webpages/registration/registration.component';
+import { RegisterComponent } from './webpages/register/register.component';
+import { StudentPageComponent } from './webpages/student-page/student-page.component';
+import { AdminPageComponent } from './spring/admin-page/admin-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent
+    RegisterComponent,
+    StudentPageComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
