@@ -33,39 +33,28 @@ export class LoginComponent implements OnInit {
 
 
 
-   login() {
+  login() {
     this.publicService.publicLogin(this.user)
       .subscribe(async data => {
         this.token = data.token
 
-        let result;
-        result = await this.toValidate(data.token);
-        console.log(result);
 
-        if (result) {
-          console.log("this is true")
+        if (await this.toValidate(data.token)) {
           this.router.navigate(['/admin'])
         }
-        else {
-          console.log(
-            "tak masukk anjir!!!!"
-          )
-        }
-        console.log(data)
       })
   }
 
 
   toValidate(token: String) {
-    let result = false;
     return new Promise(resolve => {
-      this.publicService.publicValidate("ncs-" + token).subscribe(
-       async data => {
-          result = await Boolean(data);
-        }
-      )
-
-      resolve(result);
+      setTimeout(() => {
+        this.publicService.publicValidate("ncs-" + token).subscribe(
+          data => {
+            resolve(Boolean(data));
+          }
+        )
+      })
     })
 
 
