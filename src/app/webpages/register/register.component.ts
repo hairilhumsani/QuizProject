@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/spring/model/user';
+import { PublicServiceService } from 'src/app/spring/service/public-service.service';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+
+  user: User = new User("","","","");
+  constructor(
+    private publicService: PublicServiceService,
+    private router: Router,
+
+  ) { 
+
+    
+  }
 
   ngOnInit(): void {
+  }
+
+  register() {
+    this.publicService.publicRegister(this.user)
+      .subscribe(data => {
+        console.log(data)
+      })
+  }
+
+  cancel()
+  {
+    this.router.navigate(['/login'])
   }
 
 }

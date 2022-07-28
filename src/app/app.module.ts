@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../assets/material/material.module';
 import { RegisterComponent } from './webpages/register/register.component';
 import { StudentPageComponent } from './webpages/student-page/student-page.component';
-import { AdminPageComponent } from './spring/admin-page/admin-page.component';
+import { AdminPageComponent } from './webpages/admin-page/admin-page.component';
 
 
 @NgModule({

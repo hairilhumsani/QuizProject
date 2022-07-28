@@ -1,1 +1,44 @@
-<p>register works!</p>
+<mat-card class="head-display">
+    <mat-card class="card-display">
+          <!-- Register Card-->
+          <mat-card class="login-card">
+            <mat-card-title style="text-align:center">Register</mat-card-title>
+            <mat-card-content>
+              <form>
+                <p>
+                  <mat-form-field style="width:100%">
+                    <input type="text" matInput placeholder="Username" [(ngModel)]="user.username" name="username">
+                  </mat-form-field>
+                </p>
+  
+                <p>
+                  <mat-form-field style="width:100%">
+                    <input type="password" matInput placeholder="Password" [(ngModel)]="user.password" name='password'>
+                  </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field style="width:100%">
+                        <mat-label>Role</mat-label>
+                        <mat-select [(ngModel)]="user.role" name="role">
+                            <mat-option value="admin">Admin</mat-option>
+                            <mat-option value="student">Student</mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                  </p>
+    
+                  <p>
+                    <mat-form-field style="width:100%">
+                      <input type="email" matInput placeholder="Email"  [(ngModel)]="user.email" name='email'>
+                    </mat-form-field>
+                  </p>
+  
+                <div class="button">
+                  <button type="submit" id="loginBtn" (click)="register()" mat-raised-button>Register</button>
+                  <button type="button" (click)="cancel()" color="warn" id="registerBtn" mat-raised-button>Cancel</button>
+                </div>
+              </form>
+            </mat-card-content>
+          </mat-card>
+    </mat-card>
+  </mat-card>

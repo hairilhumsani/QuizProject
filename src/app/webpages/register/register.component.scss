@@ -1,0 +1,38 @@
+.head-display {
+    background-color: paleturquoise;
+    height: 100%;
+}
+
+.card-display {
+
+    border-radius: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+
+}
+
+.button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-display #loginBtn {
+    margin-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.card-display #registerBtn {
+    margin-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.login-card {
+    box-shadow: none;
+}
+
+#loginBtn
+{
+    background-color: lime;
+}

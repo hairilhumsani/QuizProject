@@ -32,5 +32,9 @@ export class PublicServiceService {
     return this.http.post(this.usersUrl + '/register', body, { 'headers': headers })
   }
 
-  
+  publicValidate(token: String) {
+    const headers = { 'Authorization': token };
+    return this.http.post('https://reqres.in/api/posts', { 'headers': headers })
+  }
+
 }

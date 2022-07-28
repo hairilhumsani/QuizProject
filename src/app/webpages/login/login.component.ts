@@ -9,10 +9,19 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  user: User = new User;
+  user: User = new User("", "", "", "");
+  token: string = "";
 
-  constructor(private publicService: PublicServiceService, private router: Router
-  ) { }
+  constructor(
+    
+    private publicService: PublicServiceService, 
+    private router: Router,
+
+  ) {
+
+  
+
+   }
 
   ngOnInit(): void {
   }
@@ -27,12 +36,28 @@ export class LoginComponent implements OnInit {
   login() {
     this.publicService.publicLogin(this.user)
       .subscribe(data => {
+        this.token = data.token
+
+        if(this.toValidate(data.token) == 'true') 
+        {this.router.navigate(['/admin'])}
         console.log(data)
       })
   }
 
-  register() {
-    
+
+  toValidate(token: String) : any
+  {
+    this.publicService.publicValidate(token).subscribe(
+      data =>
+      {
+        console.log(data)
+        return data;
+      }
+    )
+
+  }
+
+  toRegister() {
     this.router.navigate(["/register"]);
   }
 }

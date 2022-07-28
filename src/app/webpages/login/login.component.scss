@@ -1,38 +1,34 @@
-.head-display
-{background-color: paleturquoise;
-    width: 100%;
+.login-head-display {
+    background-color: paleturquoise;
     height: 100%;
+
 }
 
-.card-display
-{
-    
+.login-card-display {
+
     border-radius: 20px;
-    margin: 20%;
-    
+    margin-left: 20%;
+    margin-right: 20%;
+
 }
 
-.button
-{
+.login-button-class {
     display: flex;
     justify-content: space-between;
 }
 
-.card-display #loginBtn
-{
+.login-card-display #loginBtn {
     margin-bottom: 10px;
     padding-left: 10%;
     padding-right: 10%;
 }
 
-.card-display #registerBtn
-{
+.login-card-display #registerBtn {
     margin-bottom: 10px;
     padding-left: 10%;
     padding-right: 10%;
 }
 
-.login-card
-{
-        box-shadow: none;
+.login-card {
+    box-shadow: none;
 }
