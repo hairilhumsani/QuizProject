@@ -1,9 +1,4 @@
 <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')"
-        (closed)="events.push('close!')">
-        Sidenav content
-    </mat-sidenav>
-
     <mat-toolbar>
         <button (click)="sidenav.toggle()" mat-icon-button class="example-icon"
             aria-label="Example icon-button with menu icon">
@@ -15,4 +10,10 @@
             <mat-icon>lock_open</mat-icon>
         </button>
     </mat-toolbar>
+    <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')"
+        (closed)="events.push('close!')">
+        Sidenav content
+    </mat-sidenav>
+
+
 </mat-sidenav-container>
