@@ -13,15 +13,15 @@ export class LoginComponent implements OnInit {
   token: string = "";
 
   constructor(
-    
-    private publicService: PublicServiceService, 
+
+    private publicService: PublicServiceService,
     private router: Router,
 
   ) {
 
-  
 
-   }
+
+  }
 
   ngOnInit(): void {
   }
@@ -33,30 +33,41 @@ export class LoginComponent implements OnInit {
 
 
 
-  login() {
+   login() {
     this.publicService.publicLogin(this.user)
-      .subscribe(data => {
+      .subscribe(async data => {
         this.token = data.token
 
-        if(this.toValidate(data.token)) 
-        {this.router.navigate(['/admin'])}
+        let result;
+        result = await this.toValidate(data.token);
+        console.log(result);
+
+        if (result) {
+          console.log("this is true")
+          this.router.navigate(['/admin'])
+        }
+        else {
+          console.log(
+            "tak masukk anjir!!!!"
+          )
+        }
         console.log(data)
       })
   }
 
 
-  toValidate(token: String) : Boolean
-  {
+  toValidate(token: String) {
     let result = false;
-    this.publicService.publicValidate("ncs-" + token).subscribe(
-      data =>
-      {
-        console.log(data)
-        result = Boolean(data);
-      }
-    )
+    return new Promise(resolve => {
+      this.publicService.publicValidate("ncs-" + token).subscribe(
+       async data => {
+          result = await Boolean(data);
+        }
+      )
 
-    return result
+      resolve(result);
+    })
+
 
   }
 
