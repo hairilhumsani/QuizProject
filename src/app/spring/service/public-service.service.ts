@@ -36,7 +36,7 @@ export class PublicServiceService {
     let headers = new HttpHeaders({
       'Authorization' : token
     })
-    return this.http.get(this.usersUrl + '/register', { 'headers': headers })
+    return this.http.get(this.usersUrl + '/validate', { 'headers': headers })
   }
 
 }
