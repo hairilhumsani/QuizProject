@@ -38,22 +38,25 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
         this.token = data.token
 
-        if(this.toValidate(data.token) == 'true') 
+        if(this.toValidate(data.token)) 
         {this.router.navigate(['/admin'])}
         console.log(data)
       })
   }
 
 
-  toValidate(token: String) : any
+  toValidate(token: String) : Boolean
   {
+    let result = false;
     this.publicService.publicValidate("ncs-" + token).subscribe(
       data =>
       {
         console.log(data)
-        return data;
+        result = Boolean(data);
       }
     )
+
+    return result
 
   }
 
