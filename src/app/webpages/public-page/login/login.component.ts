@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicServiceService } from 'src/app/spring/service/public-service.service';
-import { User } from '../../spring/model/user';
+import { User } from '../../../spring/model/user';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
 
 
         if (await this.toValidate(data.token)) {
+          sessionStorage.setItem('token', "ncs-" + data.token)
           this.router.navigate(['/admin'])
         }
       })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-page',
@@ -7,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPageComponent implements OnInit {
 
-  events: string[] = [];
   opened: boolean;
 
-  constructor() { }
+  constructor(private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+  }
+
+  redirectTo(page : string)
+  {
+    this.router.navigate([page],{relativeTo:this.route})
   }
 
 }

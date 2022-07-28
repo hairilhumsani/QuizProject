@@ -10,9 +10,19 @@
             <mat-icon>lock_open</mat-icon>
         </button>
     </mat-toolbar>
-    <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')"
-        (closed)="events.push('close!')">
-        Sidenav content
+
+   <router-outlet></router-outlet>
+
+
+
+
+
+    <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+
+        <mat-action-list class="sidenav-items">
+            <button mat-list-item (click)="redirectTo('question')"> Question </button>
+            <button mat-list-item  (click)="redirectTo('students')"> Undo </button>
+        </mat-action-list>
     </mat-sidenav>
 
 
