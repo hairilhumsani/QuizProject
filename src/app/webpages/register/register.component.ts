@@ -11,7 +11,7 @@ import { PublicServiceService } from 'src/app/spring/service/public-service.serv
 export class RegisterComponent implements OnInit {
 
 
-  user: User = new User("","","","");
+  user: User = new User;
   constructor(
     private publicService: PublicServiceService,
     private router: Router,

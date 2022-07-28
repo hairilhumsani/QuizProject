@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  user: User = new User("", "", "", "");
+  user: User = new User;
   token: string = "";
 
   constructor(
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
 
   toValidate(token: String) : any
   {
-    this.publicService.publicValidate(token).subscribe(
+    this.publicService.publicValidate("ncs-" + token).subscribe(
       data =>
       {
         console.log(data)
