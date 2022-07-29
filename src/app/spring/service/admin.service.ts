@@ -10,15 +10,14 @@ export class AdminService {
 
   private usersUrl: string;
 
-  constructor(private http: HttpClient) { this.usersUrl = "http://localhost:8081/api/admin"}
-
-
-  getQuestions(token : any) : Observable<any>
-  {console.log(token + "in servoice")
+  constructor(private http: HttpClient) { this.usersUrl = "http://localhost:8082/api/admin" }
+  
+  getQuestions(token: any): Observable<any> {
+    console.log(token + "inside aservie")
     let headers = new HttpHeaders({
-      'Authorization': token
+      "Authorization" : token
     });
     //const headers = {'content-type': 'application/json'};
-    return this.http.get(this.usersUrl + '/getQuestions' ,{ 'headers': headers })
+    return this.http.get(this.usersUrl + '/getQuestions', { 'headers': headers })
   }
 }

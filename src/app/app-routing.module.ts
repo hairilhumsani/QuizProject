@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   {
     path: "admin", component: AdminPageComponent, children: [
+      {path: "", redirectTo:"question", pathMatch:"full"},
       { path: "question", component: QuestionAdminPageComponent},
       { path: "students", component: StudentAdminPageComponent}
     ]
