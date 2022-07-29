@@ -10,7 +10,7 @@ export class AdminService {
 
   private usersUrl: string;
 
-  constructor(private http: HttpClient) { this.usersUrl = "http://localhost:8082/api/admin" }
+  constructor(private http: HttpClient) { this.usersUrl = "http://localhost:8081/api/admin" }
   
   getQuestions(token: any): Observable<any> {
     console.log(token + "inside aservie")
