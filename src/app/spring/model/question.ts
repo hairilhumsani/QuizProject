@@ -1,12 +1,11 @@
 export class Question {
-    private questionString: string;
-    private category: string;
-    private marks: number;
-    private option1: string;
-    private option2: string;
-    private option3: string;
-    private option4: string;
-    private correctAnswer: string;
-
-
+    questionId : number;
+    questionString: string;
+    category: string;
+    marks: number;
+    option1: string;
+    option2: string;
+    option3: string;
+    option4: string;
+    correctAnswer: string;
 }

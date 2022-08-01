@@ -1,0 +1,72 @@
+<mat-card class="login-card">
+    <mat-card-title mat-dialog-title style="text-align:center">Update Question</mat-card-title>
+    <mat-card-content mat-dialog-content>
+        <form>
+            <p>
+                <mat-form-field style="width:100%">
+                    <input type="text" matInput placeholder="Question String" name="questionString"
+                        [(ngModel)]="this.question.questionString">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field style="width:100%">
+                    <input type="text" matInput placeholder="Category" name="category"
+                        [(ngModel)]="this.question.category">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field style="width:100%">
+                    <input type="text" matInput placeholder="Difficulty" name="marks" [(ngModel)]="this.question.marks"
+                       >
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field style="width:100%">
+                    <input type="text" matInput placeholder="Option 1" name="option1"
+                        [(ngModel)]="this.question.option1" >
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field style="width:100%">
+                    <input type="text" matInput placeholder="Option 2" [(ngModel)]="this.question.option2"
+                        name="option2" >
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field style="width:100%">
+                    <input type="text" matInput placeholder="Option 3" name="option3"
+                        [(ngModel)]="this.question.option3" >
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field style="width:100%">
+                    <input type="text" matInput placeholder="Option 4" name="option4"
+                        [(ngModel)]="this.question.option4" >
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field style="width:100%">
+                    <mat-label>Correct Answer</mat-label>
+                    <mat-select [(value)] ="this.question.correctAnswer" name="correctAnswer" [(ngModel)]="this.question.correctAnswer">
+                        <mat-option value="{{this.question.option1}}">{{this.question.option1}}</mat-option>
+                        <mat-option value="{{this.question.option2}}">{{this.question.option2}}</mat-option>
+                        <mat-option value="{{this.question.option3}}">{{this.question.option3}}</mat-option>
+                        <mat-option value="{{this.question.option4}}">{{this.question.option4}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </p>
+
+
+            <div mat-dialog-actions class="button">
+                <button type="submit" (click)="updateQuestion()" color="primary" mat-raised-button>Update</button>
+                <button type="button" (click)="deleteQuestion()" color="warn" mat-raised-button>Delete</button>
+                <button type="button" (click)="onNoClick()" mat-raised-button>Cancel</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

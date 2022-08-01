@@ -6,22 +6,22 @@
         </button>
         <span>Admin</span>
         <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <mat-icon>lock_open</mat-icon>
+
+        <button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon (click)="addQuestion()" >plus</mat-icon>
+        </button>
+        <button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon (click)="logout()" >lock_open</mat-icon>
         </button>
     </mat-toolbar>
 
    <router-outlet></router-outlet>
 
-
-
-
-
     <mat-sidenav #sidenav mode="over" [(opened)]="opened">
 
         <mat-action-list class="sidenav-items">
-            <button mat-list-item (click)="redirectTo('question')"> Question </button>
-            <button mat-list-item  (click)="redirectTo('students')"> Undo </button>
+            <button mat-list-item (click)="redirectTo('question')"> Edit Questions </button>
+            <button mat-list-item (click)="redirectTo('students')"> Edit Users </button>
         </mat-action-list>
     </mat-sidenav>
 

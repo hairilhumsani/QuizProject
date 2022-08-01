@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule , NO_ERRORS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -16,6 +16,10 @@ import { AdminPageComponent } from './webpages/admin-page/admin-page.component';
 import { QuestionPageComponent } from './webpages/student-page/question-page/question-page.component';
 import { QuestionAdminPageComponent } from './webpages/admin-page/question-admin-page/question-admin-page.component';
 import { StudentAdminPageComponent } from './webpages/admin-page/student-admin-page/student-admin-page.component';
+import { MatTableModule } from '@angular/material/table';
+import { CdkTableModule} from '@angular/cdk/table';
+import { QuestionAdminDialogComponent } from './webpages/admin-page/question-admin-page/dialog/question-admin-dialog/question-admin-dialog.component';
+import { QuestionAdminAddDialogComponent } from './webpages/admin-page/question-admin-page/dialog/question-admin-add-dialog/question-admin-add-dialog.component';
 
 
 @NgModule({
@@ -27,7 +31,9 @@ import { StudentAdminPageComponent } from './webpages/admin-page/student-admin-p
     AdminPageComponent,
     QuestionPageComponent,
     QuestionAdminPageComponent,
-    StudentAdminPageComponent
+    StudentAdminPageComponent,
+    QuestionAdminDialogComponent,
+    QuestionAdminAddDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +42,12 @@ import { StudentAdminPageComponent } from './webpages/admin-page/student-admin-p
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    CdkTableModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
