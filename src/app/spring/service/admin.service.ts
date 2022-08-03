@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Question } from '../model/question';
+import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -84,6 +85,24 @@ export class AdminService {
     });
     //const headers = {'content-type': 'application/json'};
     return this.http.get(this.usersUrl + '/getUsersByRole/' + role, { 'headers': headers })
+  }
+
+  updateUser(token: any,u: User): Observable<any> {
+    let headers = new HttpHeaders({
+      "Authorization" : token,
+      'Content-Type': 'application/json'
+    });
+    const body = JSON.stringify(u)
+    //const headers = {'content-type': 'application/json'};
+    return this.http.put(this.usersUrl + '/updateUser', body, { 'headers': headers })
+  }
+
+  deleteUser(token: any,id : number): Observable<any> {
+    let headers = new HttpHeaders({
+      "Authorization" : token
+    });
+    //const headers = {'content-type': 'application/json'};
+    return this.http.delete(this.usersUrl + '/deleteUser/'+ id, { 'headers': headers })
   }
 
   //TESTS FUNCTION

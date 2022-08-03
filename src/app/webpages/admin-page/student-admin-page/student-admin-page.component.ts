@@ -51,6 +51,8 @@ export class StudentAdminPageComponent implements OnInit {
       height: 'fit-content',
       data: {user: user},
     });
+
+    dialogRef.afterClosed().subscribe(result=> this.getUsersByRole())
   }
 
 }

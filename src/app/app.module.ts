@@ -21,6 +21,7 @@ import { CdkTableModule} from '@angular/cdk/table';
 import { QuestionAdminDialogComponent } from './webpages/admin-page/question-admin-page/dialog/question-admin-dialog/question-admin-dialog.component';
 import { QuestionAdminAddDialogComponent } from './webpages/admin-page/question-admin-page/dialog/question-admin-add-dialog/question-admin-add-dialog.component';
 import { StudentDetailDialogComponent } from './webpages/admin-page/student-admin-page/dialog/student-detail-dialog/student-detail-dialog.component';
+import { StudentTestDialogComponent } from './webpages/admin-page/student-admin-page/dialog/student-test-dialog/student-test-dialog.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { StudentDetailDialogComponent } from './webpages/admin-page/student-admi
     StudentAdminPageComponent,
     QuestionAdminDialogComponent,
     QuestionAdminAddDialogComponent,
-    StudentDetailDialogComponent
+    StudentDetailDialogComponent,
+    StudentTestDialogComponent
   ],
   imports: [
     BrowserModule,

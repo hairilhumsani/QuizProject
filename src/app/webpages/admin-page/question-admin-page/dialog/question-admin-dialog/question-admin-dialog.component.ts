@@ -36,7 +36,6 @@ export class QuestionAdminDialogComponent implements OnInit {
     const token = sessionStorage.getItem('token');
     this.adminService.updateQuestion(token, this.question)
       .subscribe(data => {
-        console.log("updated")
         this.dialogRef.close();
       })
   }
@@ -45,7 +44,6 @@ export class QuestionAdminDialogComponent implements OnInit {
     const token = sessionStorage.getItem('token');
     this.adminService.deleteQuestion(token, this.question.questionId)
       .subscribe(data => {
-        console.log("Deleted")
         this.dialogRef.close();
         this.data.table.renderRows();
       })
