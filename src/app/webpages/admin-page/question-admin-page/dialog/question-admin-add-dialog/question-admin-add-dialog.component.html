@@ -1,5 +1,5 @@
 <mat-card class="login-card">
-    <mat-card-title mat-dialog-title style="text-align:center">Update Question</mat-card-title>
+    <mat-card-title mat-dialog-title style="text-align:center">Add Question</mat-card-title>
     <mat-card-content mat-dialog-content>
         <form>
             <p>
@@ -11,48 +11,59 @@
 
             <p>
                 <mat-form-field style="width:100%">
-                    <input type="text" matInput placeholder="Category" name="category"
+                    <mat-label>Category</mat-label>
+                    <mat-select [(value)]="this.question.category" name="correctAnswer"
                         [(ngModel)]="this.question.category">
+                        <mat-option value="Science">Science</mat-option>
+                        <mat-option value="Maths">Maths</mat-option>
+                        <mat-option value="English">English</mat-option>
+                        <mat-option value="History">History</mat-option>
+                    </mat-select>
                 </mat-form-field>
             </p>
 
             <p>
                 <mat-form-field style="width:100%">
-                    <input type="text" matInput placeholder="Difficulty" name="marks" [(ngModel)]="this.question.marks"
-                       >
+                    <mat-label>Difficuly</mat-label>
+                    <mat-select [(value)]="this.question.marks" name="marks" [(ngModel)]="this.question.marks">
+                        <mat-option value=1>Easy</mat-option>
+                        <mat-option value=2>Medium</mat-option>
+                        <mat-option value=3>Hard</mat-option>
+                    </mat-select>
                 </mat-form-field>
             </p>
 
             <p>
                 <mat-form-field style="width:100%">
                     <input type="text" matInput placeholder="Option 1" name="option1"
-                        [(ngModel)]="this.question.option1" >
+                        [(ngModel)]="this.question.option1">
                 </mat-form-field>
             </p>
             <p>
                 <mat-form-field style="width:100%">
                     <input type="text" matInput placeholder="Option 2" [(ngModel)]="this.question.option2"
-                        name="option2" >
+                        name="option2">
                 </mat-form-field>
             </p>
             <p>
                 <mat-form-field style="width:100%">
                     <input type="text" matInput placeholder="Option 3" name="option3"
-                        [(ngModel)]="this.question.option3" >
+                        [(ngModel)]="this.question.option3">
                 </mat-form-field>
             </p>
 
             <p>
                 <mat-form-field style="width:100%">
                     <input type="text" matInput placeholder="Option 4" name="option4"
-                        [(ngModel)]="this.question.option4" >
+                        [(ngModel)]="this.question.option4">
                 </mat-form-field>
             </p>
 
             <p>
                 <mat-form-field style="width:100%">
                     <mat-label>Correct Answer</mat-label>
-                    <mat-select [(value)] ="this.question.correctAnswer" name="correctAnswer" [(ngModel)]="this.question.correctAnswer">
+                    <mat-select [(value)]="this.question.correctAnswer" name="correctAnswer"
+                        [(ngModel)]="this.question.correctAnswer">
                         <mat-option value="{{this.question.option1}}">{{this.question.option1}}</mat-option>
                         <mat-option value="{{this.question.option2}}">{{this.question.option2}}</mat-option>
                         <mat-option value="{{this.question.option3}}">{{this.question.option3}}</mat-option>

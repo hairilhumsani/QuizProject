@@ -20,6 +20,7 @@ import { MatTableModule } from '@angular/material/table';
 import { CdkTableModule} from '@angular/cdk/table';
 import { QuestionAdminDialogComponent } from './webpages/admin-page/question-admin-page/dialog/question-admin-dialog/question-admin-dialog.component';
 import { QuestionAdminAddDialogComponent } from './webpages/admin-page/question-admin-page/dialog/question-admin-add-dialog/question-admin-add-dialog.component';
+import { StudentDetailDialogComponent } from './webpages/admin-page/student-admin-page/dialog/student-detail-dialog/student-detail-dialog.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { QuestionAdminAddDialogComponent } from './webpages/admin-page/question-
     QuestionAdminPageComponent,
     StudentAdminPageComponent,
     QuestionAdminDialogComponent,
-    QuestionAdminAddDialogComponent
+    QuestionAdminAddDialogComponent,
+    StudentDetailDialogComponent
   ],
   imports: [
     BrowserModule,

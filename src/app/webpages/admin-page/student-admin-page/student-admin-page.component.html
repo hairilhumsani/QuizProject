@@ -1,1 +1,24 @@
-<p>student-admin-page works!</p>
+<mat-table [dataSource]="user">
+    <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef="position">No.</mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index;">{{i + 1}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef="username">Username</mat-header-cell>
+        <mat-cell *matCellDef="let element;">{{element.username}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="role">
+        <mat-header-cell *matHeaderCellDef="role">Role</mat-header-cell>
+        <mat-cell *matCellDef="let element;">{{element.role}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef="email">Email</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openDialog(row)"></mat-row>
+</mat-table>

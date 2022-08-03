@@ -12,6 +12,8 @@ export class AdminService {
 
   constructor(private http: HttpClient) { this.usersUrl = "http://localhost:8081/api/admin" }
   
+
+  //QUESTIONS FUNCTIONN
   getQuestions(token: any): Observable<any> {
     let headers = new HttpHeaders({
       "Authorization" : token,
@@ -64,4 +66,35 @@ export class AdminService {
     //const headers = {'content-type': 'application/json'};
     return this.http.delete(this.usersUrl + '/deleteQuestion/'+ id, { 'headers': headers })
   }
+
+  //USERS FUNCTION
+  getAllUsers(token: any) : Observable<any>
+  {
+    let headers = new HttpHeaders({
+      "Authorization" : token
+    });
+    //const headers = {'content-type': 'application/json'};
+    return this.http.get(this.usersUrl + '/getAllUsers', { 'headers': headers })
+  }
+
+  getUsersByRole(token: any,role : string) : Observable<any>
+  {
+    let headers = new HttpHeaders({
+      "Authorization" : token
+    });
+    //const headers = {'content-type': 'application/json'};
+    return this.http.get(this.usersUrl + '/getUsersByRole/' + role, { 'headers': headers })
+  }
+
+  //TESTS FUNCTION
+
+  getTestById(token: any, id : number): Observable<any>
+  {
+    let headers = new HttpHeaders({
+      "Authorization" : token
+    });
+    //const headers = {'content-type': 'application/json'};
+    return this.http.get(this.usersUrl + '/getTestByUserId/' + id, { 'headers': headers })
+  }
+
 }

@@ -18,7 +18,6 @@ export class PublicServiceService {
     });
     //const headers = {'content-type': 'application/json'};
     const body = JSON.stringify(user)
-    console.log(body);
     return this.http.post(this.usersUrl + '/login', body, { 'headers': headers })
   }
 
@@ -28,8 +27,6 @@ export class PublicServiceService {
     });
     //const headers = {'content-type': 'application/json'};
     const body = JSON.stringify(user)
-
-    console.log(body);
     return this.http.post(this.usersUrl + '/register', body, { 'headers': headers })
   }
 

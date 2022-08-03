@@ -1,9 +1,10 @@
-import { Component, Inject, NgModule, OnInit } from '@angular/core';
+import { Component, Inject, NgModule, OnInit, ViewChild } from '@angular/core';
 import { Question } from 'src/app/spring/model/question';
 import { AdminService } from 'src/app/spring/service/admin.service';
 import { MatDialog} from '@angular/material/dialog';
 import { QuestionAdminDialogComponent } from './dialog/question-admin-dialog/question-admin-dialog.component';
 import { QuestionAdminAddDialogComponent } from './dialog/question-admin-add-dialog/question-admin-add-dialog.component';
+import { MatTable } from '@angular/material/table';
 
 @Component({
   selector: 'app-question-admin-page',
@@ -13,11 +14,9 @@ import { QuestionAdminAddDialogComponent } from './dialog/question-admin-add-dia
 
 export class QuestionAdminPageComponent implements OnInit {
 
-  animal: string;
-  name: string;
+  @ViewChild(MatTable) table: MatTable<any>;
 
-
-  displayedColumns: string[] = ['questionId','questionString','correctAnswer'];
+  displayedColumns: string[] = ['position','category','difficulty','questionString','correctAnswer'];
   question : Question[]
   category : string[] = ['Science','Maths','Java']
 
@@ -37,7 +36,7 @@ export class QuestionAdminPageComponent implements OnInit {
     this.adminService.getQuestions(token)
       .subscribe(data => {
         this.question = data
-        stop
+        stop()
       })
   }
 
@@ -57,17 +56,39 @@ export class QuestionAdminPageComponent implements OnInit {
       })
   }
 
-  openDialog(id :number): void {
-    console.log(id);
+  openDialog(question : Question): void {
     const dialogRef = this.dialog.open(QuestionAdminDialogComponent, {
       width: '100%',
       height: 'fit-content',
-      data: {name: this.name, animal: this.animal , question: this.question[id - 1]},
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
+      data: {question: question, table: this.table},
     });
   }
+
+  addQuestion(): void {
+    const dialogRef = this.dialog.open(QuestionAdminAddDialogComponent, {
+      width: '100%',
+      height: 'fit-content',
+    });
+  }
+
+
+  checkDifficulty(i: number): string | undefined {
+    switch (i) {
+      case 1:
+        return "Easy";
+
+      case 2:
+        return "Medium";
+
+      case 3:
+        return "Hard";
+
+      default:
+        return undefined;
+    }
+
+  }
+
+
+
 }

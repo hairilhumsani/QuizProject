@@ -26,22 +26,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  addAccess(adding: string) {
-    localStorage.setItem('access', adding);
-  }
-
-
-
   login() {
     this.publicService.publicLogin(this.user)
       .subscribe(async data => {
         this.token = data.token
-
-
         if (await this.toValidate(data.token)) {
           sessionStorage.setItem('token', "ncs-" + data.token)
-          this.router.navigate(['/admin'])
+          sessionStorage.setItem('username', data.username)
+          this.toDirect(data.role)
         }
       })
   }
@@ -63,5 +55,22 @@ export class LoginComponent implements OnInit {
 
   toRegister() {
     this.router.navigate(["/register"]);
+  }
+
+  toDirect(user : string)
+  {
+    switch (user)
+    {
+      case 'admin':
+        this.router.navigate(['/admin'])
+        break
+      
+      case 'student':
+        this.router.navigate(['/student'])
+        break
+
+      case '':
+        this.router.navigate(['/login'])
+    }
   }
 }

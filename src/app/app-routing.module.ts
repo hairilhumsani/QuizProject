@@ -18,7 +18,8 @@ const routes: Routes = [
       { path: "question", component: QuestionAdminPageComponent },
       { path: "students", component: StudentAdminPageComponent }
     ]
-  }
+  },
+  { path: "student", component: StudentAdminPageComponent}
 
 
 ];

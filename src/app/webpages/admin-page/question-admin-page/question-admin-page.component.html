@@ -1,20 +1,36 @@
+<div style="position : fixed;display : flex; right: 50px ;bottom : 5%;">
+  <button mat-fab color="primary" (click)="addQuestion()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
 <mat-table [dataSource]="question">
-    <ng-container matColumnDef="questionId">
-      <mat-header-cell *matHeaderCellDef="questionId">No.</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.questionId}}</mat-cell>
-    </ng-container>
+  <ng-container matColumnDef="position">
+    <mat-header-cell *matHeaderCellDef="position">No.</mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index;">{{i + 1}}</mat-cell>
+  </ng-container>
 
-    <ng-container matColumnDef="questionString">
-      <mat-header-cell *matHeaderCellDef="questionString">Question</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.questionString}}</mat-cell>
-    </ng-container>
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef="category">Category</mat-header-cell>
+    <mat-cell *matCellDef="let element;">{{element.category}}</mat-cell>
+  </ng-container>
 
-    <ng-container matColumnDef="correctAnswer">
-      <mat-header-cell *matHeaderCellDef="correctAnswer">Answer</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.correctAnswer}}</mat-cell>
-    </ng-container>
+  <ng-container matColumnDef="difficulty">
+    <mat-header-cell *matHeaderCellDef="difficulty">Difficuly</mat-header-cell>
+    <mat-cell *matCellDef="let element;">{{checkDifficulty(element.marks)}}</mat-cell>
+  </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" (click) = "openDialog(row.questionId)"></mat-row>
- 
+  <ng-container matColumnDef="questionString">
+    <mat-header-cell *matHeaderCellDef="questionString">Question</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.questionString}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="correctAnswer">
+    <mat-header-cell *matHeaderCellDef="correctAnswer">Answer</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.correctAnswer}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openDialog(row)"></mat-row>
+
 </mat-table>
