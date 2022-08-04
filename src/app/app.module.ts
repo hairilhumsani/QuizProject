@@ -13,7 +13,7 @@ import { MaterialModule } from '../assets/material/material.module';
 import { RegisterComponent } from './webpages/public-page/register/register.component';
 import { StudentPageComponent } from './webpages/student-page/student-page.component';
 import { AdminPageComponent } from './webpages/admin-page/admin-page.component';
-import { QuestionPageComponent } from './webpages/student-page/question-page/question-page.component';
+import { QuestionPageComponent } from './webpages/student-page/student-home/question-page/question-page.component';
 import { QuestionAdminPageComponent } from './webpages/admin-page/question-admin-page/question-admin-page.component';
 import { StudentAdminPageComponent } from './webpages/admin-page/student-admin-page/student-admin-page.component';
 import { MatTableModule } from '@angular/material/table';

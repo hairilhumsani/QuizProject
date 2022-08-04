@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-home',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentHomeComponent implements OnInit {
 
-  constructor() { }
+  category: string[];
+
+  constructor(
+
+    private router : Router,
+    private route: ActivatedRoute
+
+  ) {
+    this. category = ['Science','Maths','History','English']
+   }
 
   ngOnInit(): void {
+  }
+
+  takeTest(page: string) {
+    this.router.navigate([page], { relativeTo: this.route.parent })
   }
 
 }

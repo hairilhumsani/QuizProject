@@ -6,7 +6,7 @@ import { QuestionAdminPageComponent } from './webpages/admin-page/question-admin
 import { StudentAdminPageComponent } from './webpages/admin-page/student-admin-page/student-admin-page.component';
 import { LoginComponent } from './webpages/public-page/login/login.component';
 import { RegisterComponent } from './webpages/public-page/register/register.component';
-import { QuestionPageComponent } from './webpages/student-page/question-page/question-page.component';
+import { QuestionPageComponent } from './webpages/student-page/student-home/question-page/question-page.component';
 import { StudentHomeComponent } from './webpages/student-page/student-home/student-home.component';
 import { StudentPageComponent } from './webpages/student-page/student-page.component';
 
