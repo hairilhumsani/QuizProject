@@ -1,1 +1,25 @@
-<p>student-page works!</p>
+<mat-sidenav-container class="example-container">
+    <mat-toolbar>
+        <button (click)="sidenav.toggle()" mat-icon-button class="example-icon"
+            aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>Welcome Student</span>
+        <span class="example-spacer"></span>
+        <button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon  >lock_open</mat-icon>
+        </button>
+    </mat-toolbar>
+
+   <router-outlet></router-outlet>
+
+    <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+
+        <mat-action-list class="sidenav-items">
+            <button mat-list-item > History </button>
+            <button mat-list-item > Edit Users </button>
+        </mat-action-list>
+    </mat-sidenav>
+
+
+</mat-sidenav-container>

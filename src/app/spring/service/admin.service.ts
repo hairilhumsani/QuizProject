@@ -24,20 +24,20 @@ export class AdminService {
     return this.http.get(this.usersUrl + '/getQuestions', { 'headers': headers })
   }
 
-  getQuestionsByCategory(token: any,category: string): Observable<any> {
-    let headers = new HttpHeaders({
-      "Authorization" : token
-    });
-    //const headers = {'content-type': 'application/json'};
-    return this.http.get(this.usersUrl + '/getByCategory/' + category, { 'headers': headers })
-  }
-
   getQuestionsById(token: any,id: number): Observable<any> {
     let headers = new HttpHeaders({
       "Authorization" : token
     });
     //const headers = {'content-type': 'application/json'};
     return this.http.get(this.usersUrl + '/getByQuestionId/' + id, { 'headers': headers })
+  }
+
+  getQuestionsByCategory(token: any,category: string): Observable<any> {
+    let headers = new HttpHeaders({
+      "Authorization" : token
+    });
+    //const headers = {'content-type': 'application/json'};
+    return this.http.get(this.usersUrl + '/getByCategory/' + category, { 'headers': headers })
   }
 
   updateQuestion(token: any,q: Question): Observable<any> {

@@ -40,7 +40,7 @@ export class QuestionAdminPageComponent implements OnInit {
       })
   }
 
-  getQuestionByCategory(category: string): any {
+  getQuestionByCategory(category: string) : any {
     const token = sessionStorage.getItem('token');
     this.adminService.getQuestionsByCategory(token, category)
       .subscribe(data => {

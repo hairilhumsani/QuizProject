@@ -22,6 +22,8 @@ import { QuestionAdminDialogComponent } from './webpages/admin-page/question-adm
 import { QuestionAdminAddDialogComponent } from './webpages/admin-page/question-admin-page/dialog/question-admin-add-dialog/question-admin-add-dialog.component';
 import { StudentDetailDialogComponent } from './webpages/admin-page/student-admin-page/dialog/student-detail-dialog/student-detail-dialog.component';
 import { StudentTestDialogComponent } from './webpages/admin-page/student-admin-page/dialog/student-test-dialog/student-test-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
+import { StudentHomeComponent } from './webpages/student-page/student-home/student-home.component';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { StudentTestDialogComponent } from './webpages/admin-page/student-admin-
     QuestionAdminDialogComponent,
     QuestionAdminAddDialogComponent,
     StudentDetailDialogComponent,
-    StudentTestDialogComponent
+    StudentTestDialogComponent,
+    StudentHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { StudentTestDialogComponent } from './webpages/admin-page/student-admin-
     ReactiveFormsModule,
     HttpClientModule,
     MatTableModule,
-    CdkTableModule
+    CdkTableModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -11,7 +11,7 @@ export class AdminPageComponent implements OnInit {
 
   opened: boolean;
 
-  username : string | null = sessionStorage.getItem('username');
+  username: string | null = sessionStorage.getItem('username');
 
   constructor(private router: Router, private route: ActivatedRoute, public dialog: MatDialog) { }
 
@@ -23,8 +23,11 @@ export class AdminPageComponent implements OnInit {
   }
 
   logout() {
-    this.router.navigate(['/login'])
-    sessionStorage.removeItem('token');
-    sessionStorage.removeItem('username');
+    if (confirm("Are you sure you want to logout?")) {
+      this.router.navigate(['/login'])
+      sessionStorage.removeItem('token');
+      sessionStorage.removeItem('username');
+    }
+
   }
-  }
+}

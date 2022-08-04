@@ -35,7 +35,8 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem('username', data.username)
           this.toDirect(data.role)
         }
-      })
+      },error => {window.alert("Invalid Username or Password")}
+      )
   }
 
 

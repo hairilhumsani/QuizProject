@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentPageComponent implements OnInit {
 
+  opened: boolean;
+
   constructor() { }
 
   ngOnInit(): void {

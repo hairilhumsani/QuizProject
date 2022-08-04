@@ -6,6 +6,9 @@ import { QuestionAdminPageComponent } from './webpages/admin-page/question-admin
 import { StudentAdminPageComponent } from './webpages/admin-page/student-admin-page/student-admin-page.component';
 import { LoginComponent } from './webpages/public-page/login/login.component';
 import { RegisterComponent } from './webpages/public-page/register/register.component';
+import { QuestionPageComponent } from './webpages/student-page/question-page/question-page.component';
+import { StudentHomeComponent } from './webpages/student-page/student-home/student-home.component';
+import { StudentPageComponent } from './webpages/student-page/student-page.component';
 
 const routes: Routes = [
 
@@ -19,13 +22,19 @@ const routes: Routes = [
       { path: "students", component: StudentAdminPageComponent }
     ]
   },
-  { path: "student", component: StudentAdminPageComponent}
+  {
+    path: "student", component: StudentPageComponent, children: [
+      { path: "", redirectTo: "home", pathMatch: "full" },
+      { path: "home", component: StudentHomeComponent },
+      { path: "question", component: QuestionPageComponent }
+    ]
+  }
 
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),MatTableModule],
+  imports: [RouterModule.forRoot(routes), MatTableModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
