@@ -1,0 +1,34 @@
+.login-head-display {
+    background-color: paleturquoise;
+    height: 100%;
+
+}
+
+.login-card-display {
+
+    border-radius: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+
+}
+
+.login-button-class {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-card-display #loginBtn {
+    margin-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.login-card-display #registerBtn {
+    margin-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.login-card {
+    box-shadow: none;
+}

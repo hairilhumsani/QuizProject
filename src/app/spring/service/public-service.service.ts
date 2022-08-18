@@ -22,12 +22,16 @@ export class PublicServiceService {
   }
 
   publicRegister(user: User): Observable<any> {
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-    //const headers = {'content-type': 'application/json'};
-    const body = JSON.stringify(user)
-    return this.http.post(this.usersUrl + '/register', body, { 'headers': headers })
+
+    
+        let headers = new HttpHeaders({
+          'Content-Type': 'application/json'
+        });
+        //const headers = {'content-type': 'application/json'};
+        const body = JSON.stringify(user)
+        return this.http.post(this.usersUrl + '/register', body, { 'headers': headers })
+  
+   
   }
 
   publicValidate(token: string) {

@@ -1,3 +1,51 @@
-<form>
-    
-</form>
+<div *ngIf="!quizStart">
+  <mat-card *ngIf="newQuestion" class="login-head-display">
+    <mat-card class="login-card-display">
+          <!-- Login Card-->
+          <mat-card class="login-card">
+            <mat-card-title style="text-align:center">Science</mat-card-title>
+            <mat-card-content>
+                <div class="login-button-class">
+                  <button type="button" color="primary" id="loginBtn" mat-raised-button>Go Back</button>
+                  <button type="button" color="warn" id="registerBtn" mat-raised-button (click)="startQuiz()">Start Quiz</button>
+                </div>
+            </mat-card-content>
+          </mat-card>
+    </mat-card>
+  </mat-card>
+</div>
+
+<div *ngIf="quizStart">
+<mat-table [dataSource]="newQuestion">
+  <ng-container matColumnDef="position">
+    <mat-header-cell *matHeaderCellDef="position">No.</mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index;">{{i + 1}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef="category">Category</mat-header-cell>
+    <mat-cell *matCellDef="let element;">{{element.category}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="questionString">
+    <mat-header-cell *matHeaderCellDef="questionString">Question</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.questionString}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="option">
+    <mat-header-cell *matHeaderCellDef="option">Answer</mat-header-cell>
+    <mat-cell *matCellDef="let element"><mat-select>
+      <mat-option value="option1">{{element.option1}}</mat-option>
+      <mat-option value="option2">{{element.option2}}</mat-option>
+      <mat-option value="option3">{{element.option3}}</mat-option>
+      <mat-option value="option4">{{element.option4}}</mat-option>
+  </mat-select></mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" ></mat-row>
+
+</mat-table>
+<button mat-button >submit</button>
+</div>
+

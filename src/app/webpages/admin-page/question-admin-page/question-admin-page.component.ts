@@ -37,6 +37,13 @@ export class QuestionAdminPageComponent implements OnInit {
       .subscribe(data => {
         this.question = data
         stop()
+      },
+      error =>
+      {
+        if (error.status = 403)
+        {
+          window.alert("No access allowed")
+        }
       })
   }
 

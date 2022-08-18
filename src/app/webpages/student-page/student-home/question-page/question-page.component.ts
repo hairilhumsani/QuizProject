@@ -12,7 +12,11 @@ export class QuestionPageComponent implements OnInit {
 
   question: Question[]
   getCategoryData: any;
+  randomQuestionArray : any [] 
+  newQuestion : Question[] = [] 
+  quizStart = false
 
+  displayedColumns: string[] = ['position', 'category','questionString', 'option'];
   constructor(
 
     private route: ActivatedRoute,
@@ -27,6 +31,7 @@ export class QuestionPageComponent implements OnInit {
   ngOnInit(): void {
 
     this.getQuestionCategory()
+    
   }
 
   getQuestionCategory() {
@@ -38,6 +43,38 @@ export class QuestionPageComponent implements OnInit {
       }
     )
   }
+
+  async startQuiz()
+  {
+   this.randomQuestionArray = await this.generatedRandom();
+    
+    for(let e in this.randomQuestionArray)
+    {
+      this.newQuestion.push(this.question[e])
+    }
+
+    this.quizStart = true
+
+  }
+
+ async generatedRandom() : Promise<any[]>
+  {
+    let randomArray: any [] =  [];
+
+    while(randomArray.length < 20){
+      let randomNumber =Math.round(Math.random() * this.question.length);
+          if (!randomArray.includes(randomNumber)) {
+            randomArray.push(randomNumber);
+        }
+    }
+    return Promise.resolve(randomArray);
+    
+
+  }
+
+
+  
+
 
   
 
